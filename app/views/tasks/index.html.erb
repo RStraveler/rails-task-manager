@@ -1,0 +1,18 @@
+<h1>My tasks</h1>
+<br>
+<div class="container">
+  <ul>
+    <% @tasks.each do |task| %>
+     <li > <%# if task.completed %>
+      <%#= icon('fas', 'check-square') %>
+      <!-- <input type="checkbox" checked> -->
+      <%# else %>
+      <!-- <input type="checkbox"> -->
+      <%#= icon('fas', 'square') %>
+      <%# end %>
+      <%= icon('fas', task.completed ? 'check-square' : 'square' ) %>
+       <%= link_to task.title, task_path(task.id) %></li>
+    <% end %>
+  </ul>
+</div>
+<%= link_to 'Add new task', new_task_path %>
